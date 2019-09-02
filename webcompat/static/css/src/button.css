@@ -65,3 +65,23 @@
 .button-hero:hover {
   opacity: 1;
 }
+
+#submitgithub {
+  margin-bottom: 16px;
+  margin-right: 0;
+}
+
+.final-step .button:not(#submitanon) {
+  align-items: center;
+  display: flex;
+  padding: 8px 23px;
+}
+
+.final-step .button#open-username {
+  justify-content: center;
+  padding: 11px 23px;
+}
+
+#submitanon {
+  margin-top: 16px;
+}

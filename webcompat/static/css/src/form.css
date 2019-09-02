@@ -11,6 +11,10 @@
   padding: 10px 0 35px;
 }
 
+.issue-form {
+  background: transparent;
+}
+
 .form-element-bottom {
   display: flex;
   flex-flow: column nowrap;
@@ -323,4 +327,110 @@
 
 #js-ReportForm.is-closed {
   display: block;
+}
+
+.issue-form .text-field {
+  border-color: var(--screenshot-shadow);
+  font-size: 14px;
+  font-weight: 200;
+  padding: 4px 24px 5px 8px;
+}
+
+.with-validation-icons.is-validated::after,
+.with-validation-icons.is-error::before {
+  align-items: center;
+  animation-duration: .25s;
+  animation-fill-mode: forwards;
+  animation-name: validated;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  border-radius: 50%;
+  bottom: 4px;
+  content: "";
+  display: flex;
+  height: 19px;
+  justify-content: center;
+  opacity: 0;
+  position: absolute;
+  right: 8px;
+  top: auto;
+  transition: opacity .2s;
+  width: 19px;
+  z-index: 2;
+}
+
+.with-validation-icons.is-validated::after {
+  background-color: var(--issue-selected-outline);
+  background-image: url("../../img/svg/icons/svg-check-issue.svg");
+}
+
+.with-validation-icons.is-error::before {
+  background-color: var(--wizard-step-error);
+  background-image: url("../../img/svg/icons/svg-cross-white.svg");
+}
+
+.low.is-validated::after,
+.low.is-error::before {
+  bottom: 14px;
+  height: 20px;
+  right: 15px;
+  width: 20px;
+}
+
+.custom-browser .low.is-validated::after,
+.custom-browser .low.is-error::before {
+  bottom: 4px;
+  right: 4px;
+}
+
+.low .text-field::placeholder {
+  color: var(--input-placeholder);
+}
+
+/* Radio buttons with image label */
+.issue-form [type = "radio"]:checked + label .icon-container,
+.issue-form .choice-control [type = "radio"]:checked + label .icon-container:hover {
+  border: 4px solid var(--issue-selected-outline);
+}
+
+.issue-form [type = "radio"]:checked + label .icon-container::before {
+  display: none;
+}
+
+.issue-form .choice-control [type = "radio"]:checked + label .icon-container::after {
+  align-items: center;
+  animation-duration: .25s;
+  animation-fill-mode: forwards;
+  animation-name: validated;
+  background-color: var(--issue-selected-outline);
+  border: 2px solid var(--color-bg-box);
+  border-radius: 50%;
+  bottom: -6px;
+  content: url("../../img/svg/icons/svg-check-issue.svg");
+  display: flex;
+  height: 36px;
+  justify-content: center;
+  opacity: 0;
+  position: absolute;
+  right: -18px;
+  transition: opacity .2s;
+  width: 36px;
+  z-index: 0;
+}
+
+.issue-form .choice-control.browsers [type = "radio"]:checked + label .icon-container::after {
+  border: 1px solid var(--color-bg-box);
+  bottom: -5px;
+  content: url("../../img/svg/icons/svg-check-issue.svg");
+  height: 28px;
+  right: -11px;
+  width: 28px;
+}
+
+.issue-form [type = "radio"] {
+  height: 0;
+  opacity: 0;
+  position: absolute;
+  width: 0;
 }

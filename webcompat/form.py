@@ -74,7 +74,7 @@ new_issue_steps = [
     },
     {
         'number': 7,
-        'className': '',
+        'className': 'last',
         'label': 'Send report'
     }
 ]

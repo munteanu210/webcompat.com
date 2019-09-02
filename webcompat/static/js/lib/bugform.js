@@ -59,6 +59,7 @@ BugForm.prototype.onDOMReadyInit = function() {
   this.step9Container = $(".step-container.step9");
   this.step10Container = $(".step-container.step10");
   this.step11Container = $(".step-container.step11");
+  this.stepperId = $("#wizard-container");
   this.anonUsernameTrigger = $("#open-username");
   this.usernameContainer = $(".optional-username");
   this.noOtherBrowser = "no-other-browser";
@@ -893,11 +894,16 @@ BugForm.prototype.hideStep = function(hideStep) {
 };
 
 BugForm.prototype.setActiveStep = function(nextStep) {
-  for (var index = 1; index <= nextStep; index++) {
-    $("#step-" + index)
-      .addClass("complete")
-      .removeClass("active");
+  for (var index = 1; index <= this.stepperId.find(".step").length; index++) {
+    var step = $("#step-" + index);
+    if (step.hasClass("active")) {
+      $("#step-" + index).removeClass("active");
+    }
+    if (index <= nextStep) {
+      $("#step-" + index).addClass("complete");
+    }
   }
+
   $("#step-" + nextStep)
     .addClass("active")
     .removeClass("complete");
